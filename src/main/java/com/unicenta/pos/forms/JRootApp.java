@@ -343,7 +343,8 @@ public class JRootApp extends JPanel implements AppView {
         if (newText != null) {
             if (newText.equals("")) {
                 jLabel1.setText("<html><center>Mestiso POS - Touch Friendly Point of Sale<br>"
-                        + "version 5.0.1_72 <br>"
+                        + "https://mestizos.dev/<br>"
+                        + "version " + AppLocal.APP_VERSION + " <br>"
                         + "Java version " + getVersion() + "<br>"
                         + "Special thanks to "
                         + "Copyright \u00A9  uniCenta <br>"

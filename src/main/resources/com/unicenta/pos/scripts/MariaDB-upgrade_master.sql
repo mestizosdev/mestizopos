@@ -7,5 +7,8 @@ ALTER TABLE taxes ADD datestart date;
 INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder, legalcode) VALUES ('015', 'IVA 15', '015', NULL, NULL, 0.15, FALSE, NULL, '4');
 INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder, legalcode) VALUES ('013', 'IVA 13', '013', NULL, NULL, 0.13, FALSE, NULL, '10');
 
+UPDATE taxes SET legalcode='2' WHERE id='012';
+UPDATE taxes SET legalcode='8' WHERE id='008';
+
 UPDATE applications SET version = $APP_VERSION{} WHERE id = $APP_ID{};
 COMMIT;

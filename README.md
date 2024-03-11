@@ -99,9 +99,9 @@ select distinct concat('SHOW GRANTS FOR ', QUOTE(user), '@', QUOTE(host), ';') a
 ```
 select version()
 ```
-### Show database version 
+### Backup database 
 ```
-select version()
+mysqldump --no-tablespaces --routines --password=yourpass --user=root mestizo > mestizo.sql
 ```
 ### Restore database
 ```
