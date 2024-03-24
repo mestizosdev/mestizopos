@@ -45,8 +45,6 @@ public class JettyServer {
 
     public void start(AppView app) throws Exception {
 
-        System.out.println("Start Jetty Server");
-
         int maxThreads = 100;
         int minThreads = 10;
         int idleTimeout = 120;
@@ -89,6 +87,8 @@ public class JettyServer {
         servletHandler.addServletWithMapping(holderShared, "/v1/restaurant/shared");
         
         server.start();
+        
+        System.out.println("Start Jetty Server on port " + connector.getPort());
     }
 
     public void stop() throws Exception {
