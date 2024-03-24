@@ -109,22 +109,15 @@ public class TicketTaxInfo {
     }
 
     public String printTaxInfo() {
-        String nombre = tax.toString();
-        if (nombre.equals("IVA 0")) {
+        
+        if (tax.getRate() == 0) {
             return "Tarifa 0%";
-        } else if (nombre.equals("IVA 12")) {
-            if (getSubTotal() == 0) {
-                return "";
-            }
-            return "Tarifa 12% (i)";
-        } else if (nombre.equals("IVA 8")) {
-            if (getSubTotal() == 0) {
-                return "";
-            }
-            return "Tarifa 8% (i)";
-        } else if (tax.getTaxCategoryID().equals("003")) {
-            return "ICE";
         }
+        else if  (tax.getRate() > 0 && getSubTotal() > 0) {
+            int value = (int) Math.round((tax.getRate() * 100));
+            return "Tarifa " + value + "% (i)";
+        }
+        
         return "";
     }
 }

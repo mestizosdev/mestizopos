@@ -194,10 +194,22 @@
             </line>
             #end
         #end
+        <!--        
         <line>
             <text align ="left" length="16">IVA 12%</text>
             <text align ="right" length="20">${ticket.printTax()}</text>
         </line>
+        -->
+        
+        #foreach ($taxinfo in $taxes)
+        #set( $taxline = $ticket.getTaxLine($taxinfo))
+            #if ($taxline.getTax() > 0)
+            <line>
+                <text align ="left" length="16">${taxline.getTaxInfo()}%</text>
+                <text align ="right" length="20">${taxline.printTax()}</text>
+            </line>
+            #end
+        #end
         
         <line size="1">
             <text align ="left" length="16" bold="true">Total</text>

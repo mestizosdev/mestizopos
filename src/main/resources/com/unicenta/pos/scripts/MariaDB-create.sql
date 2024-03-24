@@ -1007,6 +1007,7 @@ INSERT INTO resources(id, name, restype, content) VALUES('94', 'Tax.Normal.Days'
 
 -- ADD CATEGORIES
 INSERT INTO categories(id, name) VALUES ('000', 'Category Standard');
+INSERT INTO categories(id, name) VALUES ('001', 'Category Ecuador');
 
 -- ADD TAXCATEGORIES
 /* 002 added 31/01/2017 00:00:00. */
@@ -1015,6 +1016,7 @@ INSERT INTO taxcategories(id, name) VALUES ('012', 'IVA 12');
 INSERT INTO taxcategories(id, name) VALUES ('008', 'IVA 8');
 INSERT INTO taxcategories(id, name) VALUES ('015', 'IVA 15');
 INSERT INTO taxcategories(id, name) VALUES ('013', 'IVA 13');
+INSERT INTO taxcategories(id, name) VALUES ('005', 'IVA 5');
 
 -- ADD TAXES
 /* 002 added 31/01/2017 00:00:00. */
@@ -1023,16 +1025,37 @@ INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade,
 INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder, legalcode) VALUES ('008', 'IVA 8', '008', NULL, NULL, 0.08, FALSE, NULL, '8');
 INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder, legalcode) VALUES ('015', 'IVA 15', '015', NULL, NULL, 0.15, FALSE, NULL, '4');
 INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder, legalcode) VALUES ('013', 'IVA 13', '013', NULL, NULL, 0.13, FALSE, NULL, '10');
+INSERT INTO taxes(id, name, category, custcategory, parentid, rate, ratecascade, rateorder, legalcode) VALUES ('005', 'IVA 5', '005', NULL, NULL, 0.05, FALSE, NULL, '5');
 
 -- ADD PRODUCTS
+INSERT INTO products(id, reference, code, name, category, taxcat, isservice, display, printto) 
+VALUES ('xxx999_999xxx_x9x9x9', 'xxx999', 'xxx999', 'Free Line entry', '000', '000', 1, '<html><center>Free Line entry', '1');
+INSERT INTO products(id, reference, code, name, category, taxcat, isservice, display, printto) 
+VALUES ('xxx998_998xxx_x8x8x8', 'xxx998', 'xxx998', 'Service Charge', '000', '000', 1, '<html><center>Service Charge', '1');
+
+-- ADD PRODUCTS_CAT
+INSERT INTO products_cat(product) VALUES ('xxx999_999xxx_x9x9x9');
+INSERT INTO products_cat(product) VALUES ('xxx998_998xxx_x8x8x8');
+
+-- ADD PRODUCTS Ecuador
 INSERT INTO products(id, reference, code, name, pricesell, category, taxcat, isservice, display, printto, uom) 
-VALUES ('1', '1', '1', 'Producto tarifa 0%', 1, '000', '000', 0, '<html><center>Producto tarifa 0%', '1', 'u');
+VALUES ('1', '1', '1', 'Producto 0%', 1, '001', '000', 0, '<html><center>Producto 0%', '1', 'u');
 INSERT INTO products(id, reference, code, name, pricesell, category, taxcat, isservice, display, printto, uom) 
-VALUES ('2', '2', '2', 'Producto tarifa 12%', 1, '000', '012', 0, '<html><center>Producto tarifa 12%', '1', 'u');
+VALUES ('2', '2', '2', 'Producto 12%', 1, '001', '012', 0, '<html><center>Producto 12%', '1', 'u');
+INSERT INTO products(id, reference, code, name, pricesell, category, taxcat, isservice, display, printto, uom) 
+VALUES ('3', '3', '3', 'Producto 13%', 1, '001', '013', 0, '<html><center>Producto 13%', '1', 'u');
+INSERT INTO products(id, reference, code, name, pricesell, category, taxcat, isservice, display, printto, uom) 
+VALUES ('4', '4', '4', 'Producto 15%', 1, '001', '015', 0, '<html><center>Producto 15%', '1', 'u');
+INSERT INTO products(id, reference, code, name, pricesell, category, taxcat, isservice, display, printto, uom) 
+VALUES ('5', '5', '5', 'Producto 5%', 1, '001', '005', 0, '<html><center>Producto 5%', '1', 'u');
+
 
 -- ADD PRODUCTS_CAT
 INSERT INTO products_cat(product) VALUES ('1');
 INSERT INTO products_cat(product) VALUES ('2');
+INSERT INTO products_cat(product) VALUES ('3');
+INSERT INTO products_cat(product) VALUES ('4');
+INSERT INTO products_cat(product) VALUES ('5');
 
 -- ADD LOCATION
 INSERT INTO locations(id, name, address) VALUES ('0','Location 1','Local');
