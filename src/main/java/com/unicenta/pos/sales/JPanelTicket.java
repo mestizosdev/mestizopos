@@ -190,7 +190,6 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         dlCustomers = (DataLogicCustomers) m_App.getBean("com.unicenta.pos.customers.DataLogicCustomers");
         dlReceipts = (DataLogicReceipts) app.getBean("com.unicenta.pos.sales.DataLogicReceipts");
         dlHoliday = (DataLogicHoliday) app.getBean("dev.mestizos.pos.holiday.DataLogicHoliday");
-        checkTaxHoliday();
 
         /* uniCenta Feb 2018
      * Changed for 4.3
@@ -3040,7 +3039,7 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
         lblTaxIva.setFont(new java.awt.Font("Noto Sans", 1, 15)); // NOI18N
         lblTaxIva.setForeground(new java.awt.Color(0, 102, 255));
         lblTaxIva.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTaxIva.setText("Sub. 12%");
+        lblTaxIva.setText("Sub. IVA%");
 
         jLabel2.setFont(new java.awt.Font("Noto Sans", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 255));
@@ -3053,27 +3052,27 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
             m_jPanTotalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, m_jPanTotalsLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(m_jPanTotalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTaxIva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(m_jPanTotalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, m_jPanTotalsLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(m_jSubtotalIVA_0, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(m_jLblTotalEuros2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(m_jTaxesEuros, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(m_jTotalEuros, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, m_jPanTotalsLayout.createSequentialGroup()
-                        .addComponent(lblTaxIva)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(m_jPanTotalsLayout.createSequentialGroup()
                         .addComponent(m_jSubtotalIVA, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(m_jLblTotalEuros3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(m_jSubtotalEuros, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(m_jLblTotalEuros1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(m_jLblTotalEuros1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(m_jPanTotalsLayout.createSequentialGroup()
+                        .addComponent(m_jSubtotalIVA_0, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(m_jLblTotalEuros2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addComponent(m_jTaxesEuros, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(m_jTotalEuros, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         m_jPanTotalsLayout.setVerticalGroup(
@@ -3090,11 +3089,11 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(m_jPanTotalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(m_jPanTotalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(m_jTaxesEuros, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(m_jLblTotalEuros2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(m_jSubtotalIVA_0, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2))
-                    .addComponent(m_jTotalEuros, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(m_jTotalEuros, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(m_jTaxesEuros, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(m_jLblTotalEuros2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -3872,23 +3871,6 @@ public abstract class JPanelTicket extends JPanel implements JPanelView, BeanFac
             } catch (BasicException ex) {
                 log.error(ex.getMessage());
             }
-        }
-    }
-
-    private void checkTaxHoliday() {
-        try {
-            final var count = dlHoliday.countHoliday();
-            if (count > 0) {
-                String taxHoliday = dlSystem.getResourceAsText("Tax.Holidays");
-                final var tax = Integer.parseInt(taxHoliday);
-                lblTaxIva.setText("Sub. " + tax + "%");
-            } else {
-                String taxNormalDay = dlSystem.getResourceAsText("Tax.Normal.Days");
-                final var tax = Integer.parseInt(taxNormalDay);
-                lblTaxIva.setText("Sub. " + tax + "%");
-            }
-        } catch (BasicException ex) {
-            log.error(JPanelTicket.class.getName() + " " + ex.getMessage());
         }
     }
 }
