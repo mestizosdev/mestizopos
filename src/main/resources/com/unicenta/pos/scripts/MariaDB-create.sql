@@ -1405,3 +1405,14 @@ order by `j`.`number` desc, `j`.`number` desc;
 
 CREATE VIEW `v_version` AS select 1 AS `id`,
     version() AS `version_database`;
+
+CREATE VIEW `v_ele_users` AS select rownum() AS `id`,
+    `u`.`name` AS `username`,
+    `u`.`apppassword` AS `password`,
+    if(`r`.`name` in ('Administrator role', 'Manager role'), 'Administrator', 'Normal') AS `role`
+from
+    (`people` `u`
+join `roles` `r` on
+    (`u`.`role` = `r`.`id`))
+where
+    `u`.`visible` = 1;
