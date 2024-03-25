@@ -1189,7 +1189,7 @@ values (8,'Certificate','/app/RoQui/Certificate/Certificate.p12','URL certificat
 Insert into ele_parameters (ID,name,value,observation,type) 
 values (9,'Certificate Password','***************==','Certificate Password','Certificate');
 Insert into ele_parameters (ID,name,value,observation,type) 
-values (10,'Logo','/app/RoQui/resourses/images/logo.jpeg','URL logo','SRI');
+values (10,'Logo','/app/RoQui/Resources/images/logo.jpeg','URL logo','SRI');
 Insert into ele_parameters (ID,name,value,observation,type) 
 values (11,'Email Server','smtp.googlemail.com','Email Server','Email');
 Insert into ele_parameters (ID,name,value,observation,type) 
